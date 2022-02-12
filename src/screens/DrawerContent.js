@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground, Drawer} from 'react-native'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import IconG from 'react-native-vector-icons/MaterialIcons'
 
 import Logo from '../static/images/logo-ufpa-white.svg';
 
@@ -16,23 +18,76 @@ export function DrawerContent(props) {
                         <Text style={styles.text}><B>UFPA</B> Digital</Text>
                     </ImageBackground>
 
-                    
-
                         <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="home" color={ '#0F3F68'} size={size} focused={true}/>
+                            )}
                             label="Home"
-                            onPress={() => {props.navigation.navigate('Home')}}
+                            onPress={() => { props.navigation.navigate('Home') }}
                         />
                         <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="newspaper-o" color={ '#0F3F68'} size={size}/>
+                            )}
                             label="Notícias"
-                            onPress={() => {props.navigation.navigate('Home')}}
+                            onPress={() => {props.navigation.navigate('Notifications')}}
                         />
                         <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="suitcase" color={ '#0F3F68'} size={size}/>
+                            )}
                             label="Oportunidades"
                             onPress={() => {props.navigation.navigate('Home')}}
                         />
-
-                    
-
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="mortar-board" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="SIGAA UFPA"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <IconG name="local-restaurant" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Restaurante Universitário"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="map-o" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Mapa"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="forumbee" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Rádio Web UFPA"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <Icon name="phone" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Contatos"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <IconG name="settings" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Configurações"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />
+                        <DrawerItem 
+                            icon={({focused, color, size}) => (
+                                <IconG name="info" color={ '#0F3F68'} size={size}/>
+                            )}
+                            label="Sobre"
+                            onPress={() => {props.navigation.navigate('Home')}}
+                        />   
                 </View>
             </DrawerContentScrollView>
         </View>
@@ -44,9 +99,9 @@ export function DrawerContent(props) {
 const styles = StyleSheet.create({
         container: {
             flex: 1,
+            width: '100%',
         },
         img: {
-            
             width: '100%',
             backgroundColor: '#0F3F68',
             flexDirection: 'row',

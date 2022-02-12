@@ -47,9 +47,20 @@ const Drawer = createDrawerNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home" drawerContent={props => <DrawerContent {...props } />}>
+      <Drawer.Navigator screenOptions={{
+    drawerStyle: {
+      width:'75%',
+    },headerStyle: {
+      backgroundColor: '#0F3F68',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    headerTitleAlign: 'center'
+  }} initialRouteName="Home" drawerContent={props => <DrawerContent {...props } />}>
         <Drawer.Screen name="Home" component={HomeScreen}/>
-        {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
+        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
