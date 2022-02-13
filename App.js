@@ -1,46 +1,17 @@
 import React from 'react';
 
 import {
-  StyleSheet,
-  Text,
-  View,
-  Button
-} from 'react-native';
+  StyleSheet, Text, View} from 'react-native';
 
 import 'react-native-gesture-handler';
-import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { DrawerContent } from './src/screens/DrawerContent'
+import { DrawerContent } from './src/components/DrawerContent'
 
-function CustomDrawerContent(props) {
-  return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItem
-        label="Help"
-        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-      />
-    </DrawerContentScrollView>
-  );
-}
-
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button
-        onPress={() => navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    </View>
-  );
-}
-
-function NotificationsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button onPress={() => navigation.goBack()} title="Go back home" />
-    </View>
-  );
-}
+import {Home} from './src/pages/Home'
+import {News} from './src/pages/News'
+import {About} from './src/pages/About'
+import {Contacts} from './src/pages/Contacts'
 
 const Drawer = createDrawerNavigator();
 
@@ -59,8 +30,10 @@ function App() {
     },
     headerTitleAlign: 'center'
   }} initialRouteName="Home" drawerContent={props => <DrawerContent {...props } />}>
-        <Drawer.Screen name="Home" component={HomeScreen}/>
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="Notifications" component={News} />
+        <Drawer.Screen name="Sobre" component={About} />
+        <Drawer.Screen name="Contatos" component={Contacts} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
